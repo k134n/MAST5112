@@ -1,14 +1,16 @@
+// FilterMenuScreen.tsx
 import React from 'react';
-import { View, Button, StyleSheet } from 'react-native';
+import { View, Button } from 'react-native';
+import { filterMenuScreenStyles } from './styles';
 
 interface FilterMenuScreenProps {
-  navigation: any;
   setFilter: React.Dispatch<React.SetStateAction<string>>;
+  navigation: any;
 }
 
-export default function FilterMenuScreen({ navigation, setFilter }: FilterMenuScreenProps) {
+export default function FilterMenuScreen({ setFilter, navigation }: FilterMenuScreenProps) {
   return (
-    <View style={styles.container}>
+    <View style={filterMenuScreenStyles.container}>
       <Button title="Starters" onPress={() => { setFilter('Starters'); navigation.goBack(); }} />
       <Button title="Mains" onPress={() => { setFilter('Mains'); navigation.goBack(); }} />
       <Button title="Desserts" onPress={() => { setFilter('Desserts'); navigation.goBack(); }} />
@@ -16,12 +18,3 @@ export default function FilterMenuScreen({ navigation, setFilter }: FilterMenuSc
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    padding: 20,
-    backgroundColor: '#333',
-    justifyContent: 'center',
-  },
-});

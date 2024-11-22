@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState } from 'react'; 
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-import HomeScreen from './HomeScreen';
-import AddMenuScreen from './AddMenuScreen';
-import FilterMenuScreen from './FilterMenuScreen';
+import HomeScreen from './components/HomeScreen';
+import AddMenuScreen from './components/AddMenuScreen';
+import FilterMenuScreen from './components/FilterMenuScreen';
 
 export interface MenuItem {
   dishName: string;
@@ -12,14 +12,11 @@ export interface MenuItem {
   price: string;
 }
 
-
-
-
 const Stack = createStackNavigator();
 
 export default function App() {
-  const [menuItems, setMenuItems] = useState<any[]>([]);
-  const [filter, setFilter] = useState<string>('All'); // Default to showing all items
+  const [menuItems, setMenuItems] = useState<MenuItem[]>([]); // Change type from `any[]` to `MenuItem[]`
+  const [filter, setFilter] = useState<string>('All'); 
 
   return (
     <NavigationContainer>

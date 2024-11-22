@@ -1,6 +1,7 @@
+// AddMenuScreen.tsx
 import React, { useState } from 'react';
-import { View, Text, TextInput, TouchableOpacity, Button, StyleSheet } from 'react-native';
-import { MenuItem } from '../App';
+import { View, Text, TextInput, TouchableOpacity, Button } from 'react-native';
+import { addMenuScreenStyles } from './styles';
 
 interface AddMenuScreenProps {
   menuItems: MenuItem[];
@@ -23,44 +24,44 @@ export default function AddMenuScreen({ menuItems, setMenuItems, navigation }: A
       setDescription('');
       setPrice('');
       setCourse('Select Course');
-      navigation.navigate('HomeScreen');  // Go back to HomeScreen after adding the item
+      navigation.navigate('HomeScreen');
     }
   };
 
   const selectCourse = (selectedCourse: string) => {
-    setCourse(selectedCourse);  // Update the selected course when button pressed
+    setCourse(selectedCourse);
   };
 
   return (
-    <View style={styles.container}>
-      <Text style={styles.title}>Add Menu Item</Text>
+    <View style={addMenuScreenStyles.container}>
+      <Text style={addMenuScreenStyles.title}>Add Menu Item</Text>
       <TextInput
-        style={styles.input}
+        style={addMenuScreenStyles.input}
         placeholder="Dish Name"
         value={dishName}
         onChangeText={setDishName}
       />
       <TextInput
-        style={styles.input}
+        style={addMenuScreenStyles.input}
         placeholder="Description"
         value={description}
         onChangeText={setDescription}
       />
       <TextInput
-        style={styles.input}
+        style={addMenuScreenStyles.input}
         placeholder="Price"
         value={price}
         onChangeText={setPrice}
         keyboardType="numeric"
       />
-      <View style={styles.courseButtons}>
+      <View style={addMenuScreenStyles.courseButtons}>
         {courses.map((courseName) => (
           <TouchableOpacity
             key={courseName}
-            style={styles.button}
-            onPress={() => selectCourse(courseName)}  // Set course when selected
+            style={addMenuScreenStyles.button}
+            onPress={() => selectCourse(courseName)}
           >
-            <Text style={styles.buttonText}>{courseName}</Text>
+            <Text style={addMenuScreenStyles.buttonText}>{courseName}</Text>
           </TouchableOpacity>
         ))}
       </View>
@@ -69,35 +70,3 @@ export default function AddMenuScreen({ menuItems, setMenuItems, navigation }: A
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    padding: 20,
-    backgroundColor: '#333',
-  },
-  title: {
-    fontSize: 30,
-    color: '#FFF',
-    textAlign: 'center',
-    marginVertical: 20,
-  },
-  input: {
-    backgroundColor: '#FFF',
-    padding: 10,
-    marginVertical: 5,
-    borderRadius: 5,
-  },
-  button: {
-    backgroundColor: '#666',
-    padding: 10,
-    marginVertical: 5,
-    borderRadius: 5,
-  },
-  buttonText: {
-    color: '#FFF',
-    textAlign: 'center',
-  },
-  courseButtons: {
-    marginVertical: 10,
-  },
-});
