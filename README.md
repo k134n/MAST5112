@@ -1,7 +1,7 @@
 # MAST5112-POE
 github repository: https://github.com/k134n/MAST5112-POE.git
 
-youtube video:
+youtube video: https://youtu.be/6se2dIORB8k?si=PuXVUjGtkfCpYmxc
 
 Menu App
 
