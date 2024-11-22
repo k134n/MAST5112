@@ -1,4 +1,4 @@
-// AddMenuScreen.tsx
+
 import React, { useState } from 'react';
 import { View, Text, TextInput, TouchableOpacity, Button } from 'react-native';
 import { addMenuScreenStyles } from './styles';
